@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+/* The admin reuses the builder's dark Tailwind styling verbatim, so Tailwind is
+   compiled here rather than the utility classes being hand-translated — that
+   keeps the ported components byte-comparable with their originals. */
+
+@source "./";
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-zinc-950);
+  color: var(--color-zinc-100);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}

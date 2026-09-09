@@ -1,0 +1,1196 @@
+/* =====================================================================
+   Frangipani, Poliert — Phở Restaurant Konstanz
+   Faithful refresh: dark-olive frame, frangipani photo, white cards,
+   magenta accents, chartreuse roundel. Lora / Nunito Sans.
+   ===================================================================== */
+
+:root {
+  --olive:      #2B2D10;  /* page frame */
+  --olive-soft: #3E4A1F;  /* secondary olive */
+  --white:      #FFFFFF;
+  --magenta:    #D6528B;
+  --magenta-d:  #B33A6F;  /* darker magenta for text on white (contrast) */
+  --magenta-l:  #E37FA9;  /* lighter magenta for text on olive (contrast) */
+  --chartreuse: #C6CE28;
+  --gold:       #B9A94B;  /* headline gold-olive */
+  --gold-deep:  #7A6E2C;  /* darker gold for text on white (contrast) */
+  --ink:        #2B2D10;
+  --ink-soft:   #4A4C33;
+  --paper-line: #E4E2D2;
+
+  --font-display: "Lora", Georgia, "Times New Roman", serif;
+  --font-body: "Nunito Sans", "Segoe UI", Verdana, -apple-system, sans-serif;
+
+  --maxw: 1080px;
+  --card-pad: clamp(1.5rem, 5vw, 3.5rem);
+  --radius: 4px;
+  --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background-color: var(--olive);
+  /* whisper of vignette so the flat olive gains depth */
+  background-image:
+    radial-gradient(ellipse 120% 90% at 50% 0%, rgba(255, 255, 255, 0.045), transparent 55%),
+    radial-gradient(ellipse 140% 100% at 50% 110%, rgba(0, 0, 0, 0.45), transparent 60%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.15; margin: 0; }
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--magenta-d); }
+
+:focus-visible {
+  outline: 3px solid var(--magenta);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.star { color: var(--chartreuse); }
+
+/* ---------- Links: magenta underline that draws in ---------- */
+.nav-list a,
+.hero-note a,
+.takeaway a,
+.footer-copy a {
+  color: var(--magenta-d);
+  text-decoration: none;
+  background-image: linear-gradient(var(--magenta), var(--magenta));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
+  padding-bottom: 2px;
+}
+.nav-list a { color: var(--magenta-l); }
+@media (prefers-reduced-motion: no-preference) {
+  .nav-list a, .hero-note a, .takeaway a, .footer-copy a {
+    transition: background-size 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+.nav-list a:hover, .nav-list a:focus-visible,
+.hero-note a:hover, .takeaway a:hover, .footer-copy a:hover {
+  background-size: 100% 2px;
+}
+
+/* =====================================================================
+   Header
+   ===================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem clamp(1rem, 4vw, 2.5rem);
+  padding-left: max(clamp(1rem, 4vw, 2.5rem), env(safe-area-inset-left));
+  padding-right: max(clamp(1rem, 4vw, 2.5rem), env(safe-area-inset-right));
+  background: rgba(43, 45, 16, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(198, 206, 40, 0.18);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  min-height: 44px;
+}
+.brand-roundel { width: 46px; height: 46px; flex: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .brand-roundel { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+  .brand:hover .brand-roundel { transform: rotate(-8deg) scale(1.06); }
+}
+.brand-word { display: flex; flex-direction: column; line-height: 1.25; }
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--white);
+  letter-spacing: 0.01em;
+}
+.brand-sub {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2.5vw, 2rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-list a {
+  display: inline-block;
+  padding: 0.6rem 0.15rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Mobile nav */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 0.7rem;
+  background: transparent;
+  border: 1px solid rgba(198, 206, 40, 0.4);
+  border-radius: var(--radius);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.nav-toggle-icon { display: inline-flex; flex-direction: column; gap: 4px; }
+.nav-toggle-icon span { width: 18px; height: 2px; background: var(--chartreuse); border-radius: 2px; }
+
+@media (max-width: 767px) {
+  .nav-toggle { display: inline-flex; }
+  .site-nav { position: static; }
+  .nav-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 1.25rem 1.25rem;
+    background: rgba(43, 45, 16, 0.97);
+    border-bottom: 1px solid rgba(198, 206, 40, 0.18);
+    display: none;
+  }
+  .nav-list.open { display: flex; }
+  .nav-list a {
+    display: block;
+    padding: 0.85rem 0.25rem;
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .nav-list li:last-child a { border-bottom: none; }
+}
+
+/* =====================================================================
+   Hero — white panel floating over the frangipani photo
+   ===================================================================== */
+.hero {
+  position: relative;
+  min-height: min(88vh, 820px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 42%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-img {
+    animation: kenburns 34s ease-in-out infinite alternate;
+    transform-origin: 55% 45%;
+  }
+  @keyframes kenburns {
+    from { transform: scale(1); }
+    to   { transform: scale(1.09) translate(-1.2%, 1.2%); }
+  }
+}
+/* olive scrim so the frame and photo blend, and the card edges read */
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(43, 45, 16, 0.35), transparent 30%, transparent 70%, rgba(43, 45, 16, 0.55)),
+    linear-gradient(to right, rgba(43, 45, 16, 0.15), transparent 40%);
+}
+
+.hero-inner {
+  position: relative;
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(6rem, 14vh, 9rem) clamp(1rem, 4vw, 2.5rem) clamp(3rem, 8vh, 5rem);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-card {
+  background: var(--white);
+  padding: var(--card-pad);
+  max-width: 34rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--chartreuse);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--magenta-d);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5.5vw, 3rem);
+  color: var(--gold-deep);
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.6rem 0 1.4rem;
+}
+
+.hero-note {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--paper-line);
+  padding-top: 1rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+.btn-solid {
+  background: var(--magenta);
+  color: var(--white);
+  border: 2px solid var(--magenta);
+}
+.btn-line {
+  background: transparent;
+  color: var(--magenta-d);
+  border: 2px solid var(--magenta);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn { transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease; }
+}
+.btn-solid:hover, .btn-solid:focus-visible {
+  background: var(--magenta-d);
+  border-color: var(--magenta-d);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -12px rgba(214, 82, 139, 0.7);
+}
+.btn-line:hover, .btn-line:focus-visible {
+  background: var(--magenta);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* =====================================================================
+   Sections & cards — white panels sliding over the olive frame
+   ===================================================================== */
+.section {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3.5vw, 2.5rem) clamp(1rem, 4vw, 2.5rem) 0;
+}
+.section-last { padding-bottom: clamp(2rem, 5vw, 3.5rem); }
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--card-pad);
+  box-shadow: var(--shadow);
+}
+.card-quiet {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+/* ---------- Section headers with star divider ---------- */
+.section-head { text-align: center; margin-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+
+.star-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+.star-divider .rule { width: 56px; height: 1px; background: var(--gold); }
+.star-divider .star { color: var(--gold-deep); font-size: 0.9rem; }
+.star-divider-left { justify-content: flex-start; }
+
+.section-title {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: var(--gold-deep);
+}
+.section-title-small { font-size: 1.35rem; margin-bottom: 1.5rem; }
+
+.section-sub {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--magenta-d);
+}
+
+/* =====================================================================
+   Philosophie
+   ===================================================================== */
+.big-quote {
+  margin: 0 auto clamp(1.75rem, 4vw, 2.75rem);
+  max-width: 42rem;
+  text-align: center;
+}
+.big-quote p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.45rem, 3.6vw, 2.1rem);
+  line-height: 1.35;
+  color: var(--olive-soft);
+  margin: 0;
+}
+
+.two-col {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3rem);
+}
+@media (min-width: 768px) {
+  .two-col { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+
+.pho-explainer {
+  background: #FAFAF2;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  position: relative;
+}
+.mini-roundel { width: 58px; height: 58px; margin-bottom: 0.9rem; }
+.explainer-title {
+  font-size: 1.5rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.6rem;
+}
+.explainer-title em { font-style: italic; }
+.pron {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+/* =====================================================================
+   Mittagsmenü — a properly aligned price list
+   ===================================================================== */
+.starter {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  justify-content: space-between;
+  max-width: 46rem;
+  margin: 0 auto 1.75rem;
+  padding: 1rem 1.25rem;
+  background: #FAFAF2;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius);
+  font-size: 0.98rem;
+}
+.starter-text { color: var(--ink-soft); }
+.starter strong { color: var(--ink); }
+
+.menu-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 46rem;
+}
+
+.menu-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.4rem 1.1rem;
+  align-items: baseline;
+  padding: 1.15rem 0.25rem;
+  border-bottom: 1px solid var(--paper-line);
+}
+.menu-item:last-child { border-bottom: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .menu-item { transition: background-color 0.25s ease, transform 0.25s ease; }
+  .menu-item:hover { background: #FAFAF2; transform: translateX(4px); }
+}
+
+.menu-no {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--magenta-d);
+  min-width: 2ch;
+}
+
+.dish {
+  font-size: 1.2rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.tag {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive-soft);
+  background: rgba(198, 206, 40, 0.28);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+.dish-desc {
+  margin: 0.3rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  grid-column: 2;
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold-deep);
+  white-space: nowrap;
+}
+.menu-item .price { grid-column: 3; grid-row: 1; }
+
+.takeaway {
+  max-width: 46rem;
+  margin: 1.75rem auto 0;
+  padding: 1rem 1.25rem;
+  background: rgba(214, 82, 139, 0.08);
+  border-left: 3px solid var(--magenta);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+}
+
+/* Small screens: price drops under the dish name */
+@media (max-width: 480px) {
+  .menu-item { grid-template-columns: auto 1fr; }
+  .menu-item .price { grid-column: 2; grid-row: auto; justify-self: start; }
+  .dish-desc { grid-column: 2; }
+  .starter { flex-direction: column; gap: 0.4rem; }
+}
+
+/* =====================================================================
+   Abendkarte — dark card with evening photo
+   ===================================================================== */
+.card-evening {
+  padding: 0;
+  overflow: hidden;
+  background: var(--olive-soft);
+  color: #F4F3E7;
+  display: grid;
+}
+@media (min-width: 900px) {
+  .card-evening { grid-template-columns: 1fr 1fr; }
+}
+
+.evening-media { position: relative; min-height: 260px; }
+.evening-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .evening-media img { transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  .card-evening:hover .evening-media img { transform: scale(1.05); }
+}
+@media (max-width: 899px) {
+  .evening-media { min-height: 240px; position: relative; }
+  .evening-media img { position: absolute; }
+}
+
+/* Evening-photo carousel (crossfade) */
+.carousel { position: absolute; inset: 0; overflow: hidden; }
+.carousel-track { position: absolute; inset: 0; }
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  pointer-events: none;
+}
+.carousel-slide.is-active { opacity: 1; pointer-events: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .carousel-slide { transition: none; }
+}
+/* Bottom scrim so the dots read over bright photos */
+.carousel::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 68px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.42);
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.25s ease, background 0.2s ease;
+}
+.carousel-arrow:hover { background: rgba(20, 20, 20, 0.65); }
+.evening-media:hover .carousel-arrow,
+.carousel-arrow:focus-visible { opacity: 1; }
+.carousel-prev { left: 12px; }
+.carousel-next { right: 12px; }
+.carousel-dots {
+  position: absolute;
+  left: 0; right: 0; bottom: 14px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.carousel-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.carousel-dots button[aria-selected="true"] {
+  width: 22px;
+  background: #fff;
+}
+/* On touch screens there is no hover, so keep the arrows visible. */
+@media (hover: none) {
+  .carousel-arrow { opacity: 1; background: rgba(20, 20, 20, 0.38); }
+}
+
+.evening-copy {
+  padding: var(--card-pad);
+}
+.evening-copy .section-title { color: var(--chartreuse); margin-bottom: 1rem; }
+.evening-copy .lead { color: #F4F3E7; }
+.evening-copy p { color: rgba(244, 243, 231, 0.88); }
+.evening-copy .star-divider .rule { background: rgba(198, 206, 40, 0.5); }
+.evening-copy .star-divider .star { color: var(--chartreuse); }
+.evening-hours {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--chartreuse) !important;
+  margin: 1.4rem 0 1.5rem;
+}
+
+/* =====================================================================
+   Kontakt
+   ===================================================================== */
+.contact-grid {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  max-width: 52rem;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr 1.2fr; }
+}
+
+.contact-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--magenta-d);
+  margin: 0 0 0.5rem;
+}
+.contact-block .contact-label:not(:first-child) { margin-top: 1.6rem; }
+
+address {
+  font-style: normal;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.tel-wrap { margin: 0; }
+.tel-big {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.6vw, 1.45rem);
+  color: var(--gold-deep);
+  text-decoration: none;
+  border-bottom: 2px solid var(--magenta);
+  padding-bottom: 2px;
+}
+.tel-big:hover, .tel-big:focus-visible { color: var(--magenta-d); }
+
+.contact-hint {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.hours { margin: 0; }
+.hours-row {
+  display: grid;
+  grid-template-columns: minmax(9.5rem, auto) 1fr;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--paper-line);
+}
+.hours-row:last-of-type { border-bottom: none; }
+.hours dt { font-weight: 700; color: var(--ink); }
+.hours dd { margin: 0; color: var(--ink-soft); }
+.hours-note {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+@media (max-width: 480px) {
+  .hours-row { grid-template-columns: 1fr; gap: 0.15rem; }
+}
+
+.kitchen-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* =====================================================================
+   Impressum
+   ===================================================================== */
+.impressum-grid {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+@media (min-width: 768px) {
+  .impressum-grid { grid-template-columns: 1fr 1.4fr; }
+}
+.impressum-grid strong { color: var(--ink); }
+
+/* =====================================================================
+   Footer
+   ===================================================================== */
+.site-footer {
+  text-align: center;
+  padding: clamp(2.5rem, 6vw, 4rem) 1.25rem calc(2rem + env(safe-area-inset-bottom));
+  color: rgba(244, 243, 231, 0.8);
+}
+.footer-roundel { width: 64px; height: 64px; margin: 0 auto 0.9rem; }
+.footer-line {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.footer-copy { font-size: 0.9rem; margin-bottom: 1.5rem; }
+.footer-copy a { color: var(--chartreuse); }
+.to-top {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1rem;
+  color: rgba(244, 243, 231, 0.7);
+  font-size: 0.85rem;
+  text-decoration: none;
+  border: 1px solid rgba(244, 243, 231, 0.25);
+  border-radius: var(--radius);
+}
+.to-top:hover, .to-top:focus-visible { color: var(--white); border-color: var(--chartreuse); }
+
+/* =====================================================================
+   Reveal animation (driven by app.js)
+   ===================================================================== */
+/* Gated on html.js so content stays visible when JS doesn't run */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0s);
+  }
+  html.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =====================================================================
+   Language switch (header)
+   ===================================================================== */
+/* Nav takes the middle, language switch sits at the far right edge. */
+.site-nav { margin-left: auto; }
+.lang-switch {
+  display: inline-flex;
+  flex: none;
+  border: 1px solid rgba(198, 206, 40, 0.4);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.lang-switch button {
+  min-height: 40px;
+  min-width: 44px;
+  padding: 0.35rem 0.7rem;
+  background: transparent;
+  border: none;
+  color: rgba(244, 243, 231, 0.75);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.lang-switch button + button { border-left: 1px solid rgba(198, 206, 40, 0.4); }
+.lang-switch button[aria-pressed="true"] {
+  background: rgba(198, 206, 40, 0.22);
+  color: var(--chartreuse);
+}
+.lang-switch button:focus-visible {
+  outline: 2px solid var(--chartreuse);
+  outline-offset: -2px;
+}
+@media (max-width: 767px) {
+  .site-header { gap: 0.6rem; }
+  .lang-switch button { min-width: 40px; padding: 0.3rem 0.5rem; }
+}
+@media (max-width: 460px) {
+  .brand-sub { display: none; }
+}
+
+/* =====================================================================
+   Abendkarte — full menu card (rendered from menu.json)
+   ===================================================================== */
+.evening-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.evening-copy .btn-line {
+  color: #F4F3E7;
+  border-color: rgba(198, 206, 40, 0.55);
+}
+.evening-copy .btn-line:hover,
+.evening-copy .btn-line:focus-visible {
+  background: rgba(198, 206, 40, 0.18);
+  color: var(--chartreuse);
+}
+
+#dinnerCard[hidden] { display: none; }
+/* The hidden attribute must always win — .btn etc. set display and would
+   otherwise override the UA's [hidden] rule (that's how both language PDFs
+   were showing at once). */
+[hidden] { display: none !important; }
+
+.menu-jump {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  max-width: 46rem;
+  margin: 0 auto 2rem;
+  /* One swipeable row instead of stacking — pills scroll horizontally when
+     they don't fit (esp. mobile). Scrollbar hidden; edges scroll-snap. */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  padding: 2px; /* keep focus rings from being clipped */
+}
+.menu-jump::-webkit-scrollbar { display: none; }
+/* Center the row while it fits; auto-margins collapse once it overflows,
+   which also guarantees the first pill is reachable (unlike justify-content:
+   center, which clips the leading edge of an overflowing flex row). */
+.menu-jump > :first-child { margin-left: auto; }
+.menu-jump > :last-child { margin-right: auto; }
+.menu-jump a,
+.menu-jump button {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  white-space: nowrap;
+  scroll-snap-align: center;
+  min-height: 40px;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid var(--paper-line);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.menu-jump button {
+  background: transparent;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+.menu-jump a:hover, .menu-jump a:focus-visible,
+.menu-jump button:hover, .menu-jump button:focus-visible {
+  border-color: var(--magenta);
+  color: var(--magenta-d);
+}
+.menu-jump button.is-active {
+  background: var(--magenta);
+  border-color: var(--magenta);
+  color: #fff;
+}
+.menu-jump button.is-active:hover, .menu-jump button.is-active:focus-visible {
+  color: #fff;
+}
+/* Second-level pills inside a category (e.g. Hauptspeisen subcategories). */
+.menu-jump-sub {
+  margin: 0 0 1.75rem;
+  max-width: none;
+}
+.menu-jump-sub a, .menu-jump-sub button {
+  min-height: 34px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.dinner-category { margin-top: 2.5rem; }
+.dinner-category:first-child { margin-top: 0; }
+
+.category-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  font-weight: 500;
+  color: var(--gold-deep);
+  text-align: center;
+  max-width: 46rem;
+  margin: 0 auto 0.75rem;
+}
+.subcategory-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--magenta-d);
+  max-width: 46rem;
+  margin: 2rem auto 0.35rem;
+}
+.category-intro {
+  max-width: 46rem;
+  margin: 0 auto 0.5rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.dish-marks {
+  font-family: var(--font-body);
+  font-size: 0.68em;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* Drinks */
+.drinks-list { margin-bottom: 0.5rem; }
+.table-scroll {
+  max-width: 46rem;
+  margin: 0.5rem auto 1rem;
+  overflow-x: auto;
+}
+.drinks-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.drinks-table th, .drinks-table td {
+  padding: 0.7rem 0.5rem;
+  border-bottom: 1px solid var(--paper-line);
+  text-align: left;
+  vertical-align: baseline;
+}
+.drinks-table thead th {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  border-bottom: 2px solid var(--paper-line);
+  text-align: right;
+  white-space: nowrap;
+}
+.drinks-table tbody th {
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+.drinks-table td {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--gold-deep);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Notes + legend */
+.dinner-notes {
+  max-width: 46rem;
+  margin: 2.5rem auto 0;
+  padding: 1.1rem 1.35rem;
+  background: rgba(62, 74, 31, 0.07);
+  border-left: 3px solid var(--chartreuse);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.dinner-notes p {
+  margin: 0.35rem 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+.dinner-notes .star { color: var(--gold-deep); margin-right: 0.35rem; }
+
+.legend { max-width: 46rem; margin: 0 auto; }
+.legend-cols {
+  display: grid;
+  gap: 0 2rem;
+  margin-top: 1.75rem;
+}
+@media (min-width: 600px) {
+  .legend-cols { grid-template-columns: 1fr 1fr; }
+}
+.legend-title {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 1rem 0 0.4rem;
+}
+.legend ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.legend li {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  padding: 0.12rem 0;
+}
+.legend-key { font-weight: 700; color: var(--ink); }
+
+/* PDF downloads */
+.pdf-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 46rem;
+  margin: 2.25rem auto 0;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--paper-line);
+}
+
+/* =====================================================================
+   Reservation modal (native <dialog>, driven by reserve.js)
+   ===================================================================== */
+.reserve-dialog {
+  width: min(92vw, 34rem);
+  max-height: min(92vh, 44rem);
+  padding: 0;
+  border: none;
+  border-radius: var(--radius);
+  border-top: 4px solid var(--chartreuse);
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  overflow: auto;
+}
+.reserve-dialog::backdrop {
+  background: rgba(43, 45, 16, 0.55);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reserve-dialog[open] { animation: reserve-in 0.28s cubic-bezier(0.22, 1, 0.36, 1); }
+}
+@keyframes reserve-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.reserve-form { position: relative; padding: clamp(1.5rem, 5vw, 2.5rem); }
+.reserve-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.reserve-close:hover, .reserve-close:focus-visible { color: var(--magenta-d); }
+
+.reserve-intro {
+  margin: 0.35rem 0 1.4rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.reserve-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem 1rem;
+}
+.reserve-col-2 { grid-column: 1 / -1; }
+
+.reserve-field { display: flex; flex-direction: column; gap: 0.3rem; }
+.reserve-field > span {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+.reserve-field input,
+.reserve-field textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+  background: #FCFCF6;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.7rem;
+  width: 100%;
+}
+.reserve-field textarea { resize: vertical; min-height: 3rem; }
+.reserve-field input:focus-visible,
+.reserve-field textarea:focus-visible {
+  outline: none;
+  border-color: var(--magenta);
+  box-shadow: 0 0 0 3px rgba(214, 82, 139, 0.18);
+}
+
+/* Honeypot — visually removed but reachable by bots. */
+.reserve-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.reserve-status {
+  margin: 1.2rem 0 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+}
+.reserve-status.is-info { background: rgba(198, 206, 40, 0.16); color: var(--ink-soft); }
+.reserve-status.is-success {
+  background: rgba(122, 138, 44, 0.14);
+  color: #46521c;
+  border-left: 3px solid var(--olive-soft);
+}
+.reserve-status.is-error {
+  background: rgba(214, 82, 139, 0.1);
+  color: var(--magenta-d);
+  border-left: 3px solid var(--magenta);
+}
+
+.reserve-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+.reserve-actions .btn { flex: 1 1 auto; }
+
+@media (max-width: 480px) {
+  .reserve-grid { grid-template-columns: 1fr; }
+}

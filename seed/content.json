@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "brand": {
+    "tagline": {
+      "de": "Spezialitäten aus Vietnam",
+      "en": "Specialties from Vietnam"
+    }
+  },
+  "contact": {
+    "name": "Phở Restaurant",
+    "street": "Hindenburgstraße 15",
+    "city": "78467 Konstanz",
+    "phoneDisplay": "0049 (0)7531 / 697 05 55",
+    "phoneShort": "07531 / 697 05 55",
+    "phoneHref": "+4975316970555"
+  },
+  "hero": {
+    "eyebrow": {
+      "de": "Restaurant · Konstanz",
+      "en": "Restaurant · Konstanz"
+    },
+    "title": {
+      "de": "Willkommen im Restaurant Phở",
+      "en": "Welcome to Restaurant Phở"
+    },
+    "lead": {
+      "de": "Wir servieren Ihnen Spezialitäten aus Vietnam als Mittagsmenü und auf der Abendkarte.",
+      "en": "We serve you specialties from Vietnam — as a lunch menu and on our evening menu."
+    },
+    "ctaReserve": {
+      "de": "Tisch reservieren",
+      "en": "Reserve a table"
+    },
+    "ctaHours": {
+      "de": "Öffnungszeiten",
+      "en": "Opening hours"
+    }
+  },
+  "philosophy": {
+    "quote": {
+      "de": "„In Vietnam musst du das Essen nicht suchen, es sucht dich.“",
+      "en": "“In Vietnam you don’t have to search for food, it searches for you.”"
+    },
+    "copy1": {
+      "de": "Essen ist in Vietnam wesentlich mehr als die reine Nahrungsaufnahme, es ist eine hohe Lebenskunst. Die vietnamesische Küche zählt daher zu den vielfältigsten, leichtesten und gesündesten der Welt. Die Grundpfeiler sind Reis, die Fischsoße „nườc mắm“ und frische Kräuter.",
+      "en": "Food in Vietnam is much more than mere nourishment — it is a high art of living. Vietnamese cuisine is therefore among the most diverse, lightest and healthiest in the world. Its cornerstones are rice, the fish sauce “nườc mắm” and fresh herbs."
+    },
+    "copy2": {
+      "de": "Wir kochen stets mit frischen Zutaten. Fette werden bei uns nur sparsam verwendet.",
+      "en": "We always cook with fresh ingredients. Fats are used only sparingly."
+    },
+    "pron": {
+      "de": "(„fo“ ausgesprochen)",
+      "en": "(pronounced “fo”)"
+    },
+    "explainerBody": {
+      "de": "… ist eine traditionelle Suppe und das Nationalgericht Vietnams. Sie ist fast an jeder Straßenecke erhältlich und wird gerne zum Frühstück, aber auch zu Mittag und zu Abend gegessen. Die Suppe wird in einer Schüssel serviert und enthält neben einer kräftigen Brühe Reisnudeln und dünn geschnittenes Rind- oder Hühnerfleisch. Sie kann mit frischen Kräutern und Fischsoße nach Belieben gewürzt werden.",
+      "en": "… is a traditional soup and the national dish of Vietnam. It is available at almost every street corner and is eaten for breakfast, but also for lunch and dinner. The soup is served in a bowl and, besides a rich broth, contains rice noodles and thinly sliced beef or chicken. It can be seasoned to taste with fresh herbs and fish sauce."
+    }
+  },
+  "evening": {
+    "title": {
+      "de": "Abendkarte",
+      "en": "Evening menu"
+    },
+    "lead": {
+      "de": "Ab 18 Uhr begrüßen wir Sie in unserem Restaurant und laden Sie ein zu einer kleinen kulinarischen Reise durch unser Land, vom Norden bis zum Süden.",
+      "en": "From 6 pm we welcome you to our restaurant and invite you on a small culinary journey through our country, from north to south."
+    },
+    "copy": {
+      "de": "Alle Speisen werden von uns hausgemacht und sind stets mit frischen Zutaten zubereitet.",
+      "en": "All dishes are homemade and always prepared with fresh ingredients."
+    },
+    "hoursLine": {
+      "de": "Montag – Samstag · 18 – 22.30 Uhr · Küche bis 22 Uhr",
+      "en": "Monday – Saturday · 6 – 10.30 pm · kitchen open until 10 pm"
+    }
+  },
+  "contactSection": {
+    "title": {
+      "de": "Kontakt",
+      "en": "Contact"
+    },
+    "sub": {
+      "de": "Wir freuen uns auf Sie!",
+      "en": "We look forward to seeing you!"
+    },
+    "addressLabel": {
+      "de": "Adresse",
+      "en": "Address"
+    },
+    "phoneLabel": {
+      "de": "Telefon",
+      "en": "Phone"
+    },
+    "hint": {
+      "de": "Reservierung & Bestellungen zum Mitnehmen nehmen wir gerne telefonisch entgegen.",
+      "en": "We are happy to take reservations and takeaway orders by phone."
+    },
+    "hoursLabel": {
+      "de": "Öffnungszeiten",
+      "en": "Opening hours"
+    }
+  },
+  "impressum": {
+    "title": {
+      "de": "Impressum",
+      "en": "Imprint"
+    },
+    "owner": "Luong Tam Giang",
+    "vatId": "DE299264201",
+    "legal": [
+      {
+        "heading": {
+          "de": "Nutzungsrechte",
+          "en": "Rights of use"
+        },
+        "text": {
+          "de": "Alle Texte, alle Fotos, alle Gestaltungselemente dieser Webseite sind – sofern nicht ein anderes Copyright angegeben ist – urheberrechtlich geschützt.",
+          "en": "All texts, photos and design elements of this website are protected by copyright unless another copyright is indicated."
+        }
+      },
+      {
+        "heading": {
+          "de": "Hinweis gemäß Teledienstgesetz",
+          "en": "Note pursuant to the German Teleservices Act"
+        },
+        "text": {
+          "de": "Der Webmaster dieser Seiten weist darauf hin, dass die Links zu externen Anbietern führen, sobald der Rahmen verlassen wird oder nicht ausdrücklich etwas anderes erklärt wird. Für den Inhalt der verlinkten Seiten sind die jeweiligen Autoren verantwortlich; der Webmaster übernimmt keine Verantwortung für die Richtigkeit bzw. Aktualität des Inhalts.",
+          "en": "The webmaster of these pages points out that links lead to external providers as soon as this site is left, unless expressly stated otherwise. The respective authors are responsible for the content of linked pages; the webmaster assumes no responsibility for the accuracy or currency of their content."
+        }
+      }
+    ]
+  }
+}

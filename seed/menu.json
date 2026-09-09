@@ -1,0 +1,1182 @@
+{
+  "version": 1,
+  "lunch": {
+    "subtitle": {
+      "de": "Montag bis Freitag · 11.30 – 14.30 Uhr",
+      "en": "Monday to Freiday · 11.30 am – 2.30 pm"
+    },
+    "starter": {
+      "title": {
+        "de": "Vorspeise",
+        "en": "Starter"
+      },
+      "desc": {
+        "de": "Zwei Sommerrollen oder Minirollen oder kleiner gemischter Salat <em>(alles vegan)</em>",
+        "en": "Two summer rolls or mini rolls or a small mixed salad <em>(all vegan)</em>"
+      },
+      "price": 4
+    },
+    "dishes": [
+      {
+        "no": "01",
+        "name": "Bún chay",
+        "tags": [
+          "vegan"
+        ],
+        "marks": [],
+        "desc": {
+          "de": "Dünne Reisnudeln mit veganen Frühlingsrollen, Gemüse und Kräutern.",
+          "en": "Thin rice noodles with vegan spring rolls, vegetables and herbs."
+        },
+        "price": 8.5
+      },
+      {
+        "no": "02",
+        "name": "Cơm thịt kho",
+        "tags": [],
+        "marks": [],
+        "desc": {
+          "de": "Gekochter Reis mit karamellisiertem Schweinefleisch (oder vegan), Gemüse und Kräutern.",
+          "en": "Steamed rice with caramelised pork (or vegan), vegetables and herbs."
+        },
+        "price": 9.5
+      },
+      {
+        "no": "03",
+        "name": "Phở bò",
+        "tags": [],
+        "marks": [],
+        "desc": {
+          "de": "Reisnudelsuppe mit Rindfleisch (alternativ auch mit Garnelen, Hühnerfleisch oder vegan) und Kräutern.",
+          "en": "Rice noodle soup with beef (alternatively with prawns, chicken or vegan) and herbs."
+        },
+        "price": 9
+      },
+      {
+        "no": "04",
+        "name": "Bún gà xoài",
+        "tags": [],
+        "marks": [],
+        "desc": {
+          "de": "Reisnudelsalat mit Frühlingsrollen (Hühnchenfleisch und Gemüse, gerollt in Reispapier), Salat, Mango und Kräutern.",
+          "en": "Rice noodle salad with spring rolls (chicken and vegetables rolled in rice paper), salad, mango and herbs."
+        },
+        "price": 9.5
+      },
+      {
+        "no": "05",
+        "name": "Cơm gà / Tôm",
+        "tags": [],
+        "marks": [],
+        "desc": {
+          "de": "Gekochter Reis mit gebratenem Hühnerfleisch (alternativ auch mit Garnelen oder vegan) und Gemüse in Kokos-Curry-Soße.",
+          "en": "Steamed rice with fried chicken (alternatively with prawns or vegan) and vegetables in coconut curry sauce."
+        },
+        "price": 9.5
+      }
+    ],
+    "note": {
+      "de": "Alle Gerichte gibt es auch <strong>zum Mitnehmen</strong>. Am besten Sie geben uns vorher telefonisch Bescheid unter <a href=\"tel:+4975316970555\">0049&nbsp;(0)7531 / 697 05 55</a>.",
+      "en": "All dishes are also available <strong>to take away</strong>. It's best to let us know in advance by phone at <a href=\"tel:+4975316970555\">0049&nbsp;(0)7531 / 697 05 55</a>."
+    }
+  },
+  "dinner": {
+    "title": {
+      "de": "Unsere Abendkarte",
+      "en": "Our evening menu"
+    },
+    "subtitle": {
+      "de": "Montag bis Samstag · ab 18 Uhr",
+      "en": "Monday to Saturday · from 6 pm"
+    },
+    "categories": [
+      {
+        "id": "vorspeisen",
+        "title": {
+          "de": "Salate und Vorspeisen",
+          "en": "Salads and appetizers"
+        },
+        "subcategories": [
+          {
+            "id": "vorspeisen-alle",
+            "title": null,
+            "intro": null,
+            "dishes": [
+              {
+                "no": "01",
+                "name": "Nộm bắp cải",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Weißkohlsalat mit grüner Papaya, Karotten, Geflügel und Erdnüssen.",
+                  "en": "White cabbage salad with green papaya, carrots, poultry and peanuts."
+                },
+                "price": 5.9
+              },
+              {
+                "no": "02",
+                "name": "Gỏi dưa chuột",
+                "tags": [
+                  "vegan"
+                ],
+                "marks": [],
+                "desc": {
+                  "de": "Gurkensalat mit Karotten, grüner Papaya, Pilzen und Sesam.",
+                  "en": "Cucumber salad with carrots, green papaya, mushrooms and sesame."
+                },
+                "price": 5.5
+              },
+              {
+                "no": "03",
+                "name": "Gỏi cuốn",
+                "tags": [],
+                "marks": [
+                  "1"
+                ],
+                "desc": {
+                  "de": "Zwei Sommerrollen (nicht frittiert) aus Reisnudeln, Geflügel, Garnelen und Koriander, serviert mit hausgemachtem Dip aus Hoisin und Erdnüssen.",
+                  "en": "Two summer rolls (not fried) made with rice noodles, poultry, shrimp and coriander, served with a homemade hoisin and peanut dip."
+                },
+                "price": 5.9
+              },
+              {
+                "no": "04",
+                "name": "Nem rán",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Drei Frühlingsrollen aus Hackfleisch, Gemüse (Kohlrabi, Pilze, Karotten), Ei und frischem Koriander.",
+                  "en": "Three spring rolls with minced meat, vegetables (kohlrabi, mushrooms, carrots), egg and fresh coriander."
+                },
+                "price": 5.9
+              },
+              {
+                "no": "05",
+                "name": "Nem chay rán",
+                "tags": [
+                  "vegan"
+                ],
+                "marks": [],
+                "desc": {
+                  "de": "Sechs vegetarische Frühlingsrollen mit Gemüse (Kohlrabi, Pilze, Karotten) und frischem Koriander.",
+                  "en": "Six vegetarian spring rolls with vegetables (kohlrabi, mushrooms, carrots) and fresh coriander."
+                },
+                "price": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hauptspeisen",
+        "title": {
+          "de": "Hauptspeisen",
+          "en": "Main courses"
+        },
+        "subcategories": [
+          {
+            "id": "pho",
+            "title": {
+              "de": "Phở",
+              "en": "Phở"
+            },
+            "intro": {
+              "de": "Reisnudelsuppe mit verschiedenem Gemüse, frischen Kräutern, Ingwer, Chilli und Limette.",
+              "en": "Rice noodle soup with assorted vegetables, fresh herbs, ginger, chilli and lime."
+            },
+            "dishes": [
+              {
+                "no": "06",
+                "name": "Phở bò",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Mit Rindfleisch.",
+                  "en": "With beef."
+                },
+                "price": 12.9
+              },
+              {
+                "no": "07",
+                "name": "Phở thịt lợn",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Mit Schweinefleisch.",
+                  "en": "With pork."
+                },
+                "price": 12.9
+              },
+              {
+                "no": "08",
+                "name": "Phở gà",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Mit Geflügel.",
+                  "en": "With poultry."
+                },
+                "price": 12.9
+              },
+              {
+                "no": "09",
+                "name": "Phở bò viên",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Mit Rindfleischkugeln.",
+                  "en": "With beef meatballs."
+                },
+                "price": 13.9
+              },
+              {
+                "no": "10",
+                "name": "Phở cá",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Mit Fisch.",
+                  "en": "With fish."
+                },
+                "price": 13.9
+              },
+              {
+                "no": "11",
+                "name": "Phở chay",
+                "tags": [
+                  "vegan"
+                ],
+                "marks": [],
+                "desc": {
+                  "de": "Mit Gemüse. Auf Wunsch.",
+                  "en": "With vegetables. Upon request."
+                },
+                "price": 11.5
+              }
+            ]
+          },
+          {
+            "id": "bun",
+            "title": {
+              "de": "Bún",
+              "en": "Bún"
+            },
+            "intro": {
+              "de": "Reisnudeln mit verschiedenem Gemüse und frischen Kräutern. Serviert mit hausgemachter Soße.",
+              "en": "Rice noodles with assorted vegetables and fresh herbs. Served with homemade sauce."
+            },
+            "dishes": [
+              {
+                "no": "12",
+                "name": "Bún nem",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Mit Frühlingsrollen.",
+                  "en": "With spring rolls."
+                },
+                "price": 14.9
+              },
+              {
+                "no": "13",
+                "name": "Bún vịt măng",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Mit Entenbrust.",
+                  "en": "With duck breast."
+                },
+                "price": 15.9
+              },
+              {
+                "no": "14",
+                "name": "Bún bò xào",
+                "tags": [],
+                "marks": [
+                  "4",
+                  "b"
+                ],
+                "desc": {
+                  "de": "Mit gebratenem Rindfleisch.",
+                  "en": "With fried beef."
+                },
+                "price": 15.9
+              },
+              {
+                "no": "15",
+                "name": "Bún bò Huế cay",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Suppe mit scharfen Rindfleischscheiben.",
+                  "en": "Soup with thin sliced spicy beef."
+                },
+                "price": 13.9
+              },
+              {
+                "no": "16",
+                "name": "Bún chay",
+                "tags": [
+                  "vegan"
+                ],
+                "marks": [],
+                "desc": {
+                  "de": "Mit vegetarischen Frühlingsrollen.",
+                  "en": "With vegetarian spring rolls."
+                },
+                "price": 13.5
+              }
+            ]
+          },
+          {
+            "id": "com",
+            "title": {
+              "de": "Cơm",
+              "en": "Cơm"
+            },
+            "intro": {
+              "de": "Reis mit verschiedenem Gemüse und frischen Kräutern.",
+              "en": "Rice with assorted vegetables and fresh herbs."
+            },
+            "dishes": [
+              {
+                "no": "17",
+                "name": "Cơm thịt bò",
+                "tags": [],
+                "marks": [
+                  "4",
+                  "b"
+                ],
+                "desc": {
+                  "de": "Mit Rindfleisch.",
+                  "en": "With beef."
+                },
+                "price": 15.9
+              },
+              {
+                "no": "18",
+                "name": "Cơm gà xào",
+                "tags": [],
+                "marks": [
+                  "4",
+                  "b"
+                ],
+                "desc": {
+                  "de": "Mit Geflügel.",
+                  "en": "With poultry."
+                },
+                "price": 14.9
+              },
+              {
+                "no": "19",
+                "name": "Cơm thịt lợn xào",
+                "tags": [],
+                "marks": [
+                  "4",
+                  "b"
+                ],
+                "desc": {
+                  "de": "Mit Schweinefleisch.",
+                  "en": "With pork."
+                },
+                "price": 14.9
+              },
+              {
+                "no": "20",
+                "name": "Cơm cá mực xào",
+                "tags": [],
+                "marks": [
+                  "4",
+                  "b"
+                ],
+                "desc": {
+                  "de": "Mit Tintenfisch.",
+                  "en": "With squid."
+                },
+                "price": 16.9
+              },
+              {
+                "no": "21",
+                "name": "Cơm cá rán",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Mit Fischfilet.",
+                  "en": "With fillet of fish."
+                },
+                "price": 16.9
+              },
+              {
+                "no": "22",
+                "name": "Cơm chay",
+                "tags": [
+                  "vegan"
+                ],
+                "marks": [],
+                "desc": {
+                  "de": "Mit Tofu.",
+                  "en": "With tofu."
+                },
+                "price": 13.5
+              }
+            ]
+          },
+          {
+            "id": "banh-xeo",
+            "title": {
+              "de": "Bánh xèo (Crêpes)",
+              "en": "Bánh xèo (crêpes)"
+            },
+            "intro": {
+              "de": "Vietnamesische Crêpes aus Reismehl mit Hackfleisch, Garnelen und frischen Kräutern. Serviert mit hausgemachter Soße.",
+              "en": "Vietnamese crêpes made from rice flour with minced meat, prawns and fresh herbs. Served with homemade sauce."
+            },
+            "dishes": [
+              {
+                "no": "23",
+                "name": "Bánh xèo",
+                "tags": [],
+                "marks": [],
+                "desc": {
+                  "de": "Auf Anfrage.",
+                  "en": "On request."
+                },
+                "price": 16.9
+              }
+            ]
+          },
+          {
+            "id": "op-chao",
+            "title": {
+              "de": "Món ốp chảo",
+              "en": "Món ốp chảo (pan-fried dishes)"
+            },
+            "intro": {
+              "de": "Reis oder Reisnudeln mit verschiedenem Gemüse und Zitronengras in Kokos-Curry-Soße. Serviert in heißer Pfanne.",
+              "en": "Rice or rice noodles with assorted vegetables and lemongrass in coconut curry sauce. Served in a hot pan."
+            },
+            "dishes": [
+              {
+                "no": "24",
+                "name": "Thịt gà ốp chảo",
+                "tags": [],
+                "marks": [
+                  "a"
+                ],
+                "desc": {
+                  "de": "Mit Geflügel.",
+                  "en": "With poultry."
+                },
+                "price": 14.9
+              },
+              {
+                "no": "25",
+                "name": "Thịt lợn ốp chảo",
+                "tags": [],
+                "marks": [
+                  "a"
+                ],
+                "desc": {
+                  "de": "Mit Schweinefleisch.",
+                  "en": "With pork."
+                },
+                "price": 14.9
+              },
+              {
+                "no": "26",
+                "name": "Tôm ốp chảo",
+                "tags": [],
+                "marks": [
+                  "a"
+                ],
+                "desc": {
+                  "de": "Mit Garnelen.",
+                  "en": "With prawns."
+                },
+                "price": 16.9
+              },
+              {
+                "no": "27",
+                "name": "Món chay ốp chảo",
+                "tags": [
+                  "vegan"
+                ],
+                "marks": [
+                  "a"
+                ],
+                "desc": {
+                  "de": "Mit Gemüse. Auf Wunsch mit Tofu.",
+                  "en": "With vegetables. Optionally with tofu."
+                },
+                "price": 13.5
+              }
+            ]
+          },
+          {
+            "id": "beilagen",
+            "title": {
+              "de": "Extraportion Beilagen",
+              "en": "Extra portion of sides"
+            },
+            "intro": null,
+            "dishes": [
+              {
+                "no": "28",
+                "name": {
+                  "de": "Portion Reis",
+                  "en": "Portion of rice"
+                },
+                "tags": [
+                  "vegan"
+                ],
+                "marks": [],
+                "desc": null,
+                "price": 3
+              },
+              {
+                "no": "29",
+                "name": {
+                  "de": "Portion Reisnudeln",
+                  "en": "Portion of rice noodles"
+                },
+                "tags": [
+                  "vegan"
+                ],
+                "marks": [],
+                "desc": null,
+                "price": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "nachtisch",
+        "title": {
+          "de": "Nachtisch",
+          "en": "Dessert"
+        },
+        "subcategories": [
+          {
+            "id": "nachtisch-alle",
+            "title": null,
+            "intro": null,
+            "dishes": [
+              {
+                "no": "30",
+                "name": {
+                  "de": "Vanilleeis mit Mangoscheiben",
+                  "en": "Vanilla ice cream with mango slices"
+                },
+                "tags": [
+                  "vegetarisch"
+                ],
+                "marks": [
+                  "a"
+                ],
+                "desc": null,
+                "price": 5.5
+              },
+              {
+                "no": "31",
+                "name": {
+                  "de": "Frischer Früchteteller der Saison",
+                  "en": "Fresh fruit platter of the season"
+                },
+                "tags": [
+                  "vegan"
+                ],
+                "marks": [],
+                "desc": null,
+                "price": 5
+              },
+              {
+                "no": "32",
+                "name": {
+                  "de": "Maniokkuchen mit warmer Kokossoße und frischen Früchten",
+                  "en": "Cassava cake with warm coconut sauce and fresh fruit"
+                },
+                "tags": [
+                  "vegan"
+                ],
+                "marks": [],
+                "desc": null,
+                "price": 6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "kinder",
+        "title": {
+          "de": "Kinderportion",
+          "en": "Kids portion"
+        },
+        "subcategories": [
+          {
+            "id": "kinder-alle",
+            "title": null,
+            "intro": null,
+            "dishes": [
+              {
+                "no": "33",
+                "name": {
+                  "de": "Reis od. Reisnudeln mit verschiedenem Gemüse, Geflügel",
+                  "en": "Rice or rice noodles with assorted vegetables, poultry"
+                },
+                "tags": [],
+                "marks": [],
+                "desc": null,
+                "price": 6.5
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "drinks": {
+      "title": {
+        "de": "Getränke",
+        "en": "Drinks"
+      },
+      "groups": [
+        {
+          "id": "alkoholfrei",
+          "title": {
+            "de": "Alkoholfreie Getränke",
+            "en": "Non-alcoholic beverages"
+          },
+          "sizes": [
+            "0,2 l",
+            "0,4 l",
+            "0,7 l"
+          ],
+          "items": [
+            {
+              "name": {
+                "de": "Tafelwasser (still, mit Kohlensäure)",
+                "en": "Table water (still or sparkling)"
+              },
+              "marks": [],
+              "prices": [
+                2.5,
+                3.2,
+                null
+              ]
+            },
+            {
+              "name": {
+                "de": "Flasche Wasser (still, mit Kohlensäure)",
+                "en": "Bottle of water (still or sparkling)"
+              },
+              "marks": [],
+              "prices": [
+                null,
+                null,
+                4.5
+              ]
+            },
+            {
+              "name": {
+                "de": "Fanta, Cola, Spezi, Sprite, Eistee, Cola Light",
+                "en": "Fanta, Cola, Spezi, Sprite, iced tea, Cola Light"
+              },
+              "marks": [
+                "1",
+                "2",
+                "3",
+                "5",
+                "6",
+                "7"
+              ],
+              "prices": [
+                3,
+                3.7,
+                null
+              ]
+            },
+            {
+              "name": {
+                "de": "Apfel-, Orangensaft",
+                "en": "Apple or orange juice"
+              },
+              "marks": [],
+              "prices": [
+                3.3,
+                4,
+                null
+              ]
+            },
+            {
+              "name": {
+                "de": "Apfel-, Orangensaftschorle",
+                "en": "Apple or orange juice spritzer"
+              },
+              "marks": [],
+              "prices": [
+                3,
+                3.7,
+                null
+              ]
+            },
+            {
+              "name": {
+                "de": "Mango-, Litschi- oder Johannisbeersaft",
+                "en": "Mango, lychee or currant juice"
+              },
+              "marks": [
+                "3",
+                "5"
+              ],
+              "prices": [
+                3.3,
+                4,
+                null
+              ]
+            },
+            {
+              "name": {
+                "de": "Mango-, Litschi-, Johannisbeersaft- oder Holunderblütenschorle",
+                "en": "Mango, lychee, currant juice or elderflower spritzer"
+              },
+              "marks": [
+                "3",
+                "5"
+              ],
+              "prices": [
+                3.3,
+                4,
+                null
+              ]
+            }
+          ]
+        },
+        {
+          "id": "heiss",
+          "title": {
+            "de": "Heiße Getränke",
+            "en": "Hot drinks"
+          },
+          "sizes": null,
+          "items": [
+            {
+              "name": {
+                "de": "Espresso",
+                "en": "Espresso"
+              },
+              "marks": [],
+              "size": null,
+              "price": 2.5
+            },
+            {
+              "name": {
+                "de": "Kaffee",
+                "en": "Coffee"
+              },
+              "marks": [],
+              "size": null,
+              "price": 3.2
+            },
+            {
+              "name": {
+                "de": "Cappuccino",
+                "en": "Cappuccino"
+              },
+              "marks": [
+                "a"
+              ],
+              "size": null,
+              "price": 4.2
+            },
+            {
+              "name": {
+                "de": "Vietnamesischer Kaffee (auf Anfrage)",
+                "en": "Vietnamese coffee (on request)"
+              },
+              "marks": [],
+              "size": null,
+              "price": 4.2
+            },
+            {
+              "name": {
+                "de": "Kanne Tee (Jasmin, Grün, Ingwer)",
+                "en": "Pot of tea (jasmine, green, ginger)"
+              },
+              "marks": [],
+              "size": null,
+              "price": 4
+            }
+          ]
+        },
+        {
+          "id": "bier",
+          "title": {
+            "de": "Flaschenbiere",
+            "en": "Bottled beers"
+          },
+          "sizes": null,
+          "items": [
+            {
+              "name": {
+                "de": "Rothaus Tannenzäpfle",
+                "en": "Rothaus Tannenzäpfle"
+              },
+              "marks": [],
+              "size": "0,33 l",
+              "price": 3.5
+            },
+            {
+              "name": {
+                "de": "Saigon Bier",
+                "en": "Saigon beer"
+              },
+              "marks": [],
+              "size": "0,33 l",
+              "price": 4.2
+            },
+            {
+              "name": {
+                "de": "Rothaus Export",
+                "en": "Rothaus Export"
+              },
+              "marks": [],
+              "size": "0,5 l",
+              "price": 4.5
+            },
+            {
+              "name": {
+                "de": "Rothaus Hefeweizen",
+                "en": "Rothaus wheat beer (Hefeweizen)"
+              },
+              "marks": [],
+              "size": "0,5 l",
+              "price": 4.5
+            },
+            {
+              "name": {
+                "de": "Rothaus Pils",
+                "en": "Rothaus Pils"
+              },
+              "marks": [],
+              "size": "0,5 l",
+              "price": 4.5
+            }
+          ]
+        },
+        {
+          "id": "bier-alkoholfrei",
+          "title": {
+            "de": "Alkoholfreie Flaschenbiere",
+            "en": "Alcohol-free bottled beers"
+          },
+          "sizes": null,
+          "items": [
+            {
+              "name": {
+                "de": "Beck's alkoholfrei",
+                "en": "Beck's alcohol-free"
+              },
+              "marks": [],
+              "size": "0,5 l",
+              "price": 4.5
+            },
+            {
+              "name": {
+                "de": "Hefeweizen alkoholfrei",
+                "en": "Wheat beer (Hefeweizen) alcohol-free"
+              },
+              "marks": [],
+              "size": "0,5 l",
+              "price": 4.5
+            }
+          ]
+        },
+        {
+          "id": "wein",
+          "title": {
+            "de": "Weine & Sekt",
+            "en": "Wines & sparkling wine"
+          },
+          "sizes": null,
+          "items": [
+            {
+              "name": {
+                "de": "Hauswein Weiß (Pino Grigio delle Venezie IGT, Tafelwein)",
+                "en": "House wine, white (Pino Grigio delle Venezie IGT, table wine)"
+              },
+              "marks": [],
+              "size": "0,2 l",
+              "price": 5.9
+            },
+            {
+              "name": {
+                "de": "Rotwein (Côtes du Rhône)",
+                "en": "Red wine (Côtes du Rhône)"
+              },
+              "marks": [],
+              "size": "0,2 l",
+              "price": 5.9
+            },
+            {
+              "name": {
+                "de": "Hauswein Rosé (Rosado della casa, Landwein)",
+                "en": "House wine, rosé (Rosado della casa, country wine)"
+              },
+              "marks": [],
+              "size": "0,2 l",
+              "price": 5.9
+            },
+            {
+              "name": {
+                "de": "Weißweinschorle",
+                "en": "White wine spritzer"
+              },
+              "marks": [],
+              "size": "0,2 l",
+              "price": 4.5
+            },
+            {
+              "name": {
+                "de": "Sekt Piccolo (MM Extra, trocken)",
+                "en": "Sparkling wine piccolo (MM Extra, dry)"
+              },
+              "marks": [],
+              "size": "0,2 l",
+              "price": 6
+            },
+            {
+              "name": {
+                "de": "Sekt Flasche (Boseecco, Deutscher Perlwein, weiß, trocken)",
+                "en": "Bottle of sparkling wine (Boseecco, German sparkling wine, white, dry)"
+              },
+              "marks": [],
+              "size": "0,75 l",
+              "price": 15.9
+            }
+          ]
+        },
+        {
+          "id": "spirituosen",
+          "title": {
+            "de": "Spirituosen",
+            "en": "Spirits"
+          },
+          "sizes": null,
+          "items": [
+            {
+              "name": {
+                "de": "Reisschnaps (Lua Moi)",
+                "en": "Rice spirit (Lua Moi)"
+              },
+              "marks": [],
+              "size": "2 cl",
+              "price": 4.5
+            },
+            {
+              "name": {
+                "de": "Pflaumenwein",
+                "en": "Plum wine"
+              },
+              "marks": [],
+              "size": "4 cl",
+              "price": 4.5
+            }
+          ]
+        }
+      ]
+    },
+    "legend": {
+      "additivesTitle": {
+        "de": "Zeichenerklärung Zusatzstoffe",
+        "en": "Legend: additives"
+      },
+      "additives": [
+        {
+          "key": "1",
+          "label": {
+            "de": "mit Farbstoff",
+            "en": "with colouring"
+          }
+        },
+        {
+          "key": "2",
+          "label": {
+            "de": "mit Konservierungsstoff",
+            "en": "with preservative"
+          }
+        },
+        {
+          "key": "3",
+          "label": {
+            "de": "mit Süßungsmittel",
+            "en": "with sweetener"
+          }
+        },
+        {
+          "key": "4",
+          "label": {
+            "de": "mit Geschmacksverstärker (auf Wunsch auch ohne)",
+            "en": "with flavour enhancer (optionally without)"
+          }
+        },
+        {
+          "key": "5",
+          "label": {
+            "de": "mit Antioxidationsmittel",
+            "en": "with antioxidant"
+          }
+        },
+        {
+          "key": "6",
+          "label": {
+            "de": "enthält eine Phenylalaninquelle",
+            "en": "contains a source of phenylalanine"
+          }
+        },
+        {
+          "key": "7",
+          "label": {
+            "de": "coffeinhaltig",
+            "en": "contains caffeine"
+          }
+        }
+      ],
+      "allergensTitle": {
+        "de": "Zeichenerklärung Allergene",
+        "en": "Legend: allergens"
+      },
+      "allergens": [
+        {
+          "key": "a",
+          "label": {
+            "de": "Milch, Lactose",
+            "en": "milk, lactose"
+          }
+        },
+        {
+          "key": "b",
+          "label": {
+            "de": "Weizen",
+            "en": "wheat"
+          }
+        }
+      ]
+    },
+    "notes": [
+      {
+        "id": "rabatt",
+        "text": {
+          "de": "2 Euro Rabatt für Schüler und Studenten auf alle Hauptgerichte der Abendkarte.",
+          "en": "2 euro discount for pupils and students on all main dishes of the evening menu."
+        }
+      },
+      {
+        "id": "mitnehmen",
+        "text": {
+          "de": "Alle Gerichte sind zum Mitnehmen erhältlich – oder lassen Sie sie sich bequem über Uber Eats nach Hause liefern.",
+          "en": "All dishes are available for takeout – or have them conveniently delivered to your home via Uber Eats."
+        }
+      },
+      {
+        "id": "allergie",
+        "text": {
+          "de": "Unsere Gerichte enthalten Erdnüsse, geröstete Zwiebeln, Sojasprossen und frische Kräuter wie Koriander und Minze. Auf Wunsch bereiten wir sie gerne ohne diese Zutaten zu. Bitte geben Sie uns Bescheid, wenn Sie Allergien haben.",
+          "en": "Our dishes contain peanuts, roasted onions, bean sprouts and fresh herbs such as coriander and mint. If desired, we can prepare them without these ingredients. Please let us know if you have any allergies."
+        }
+      }
+    ],
+    "pdfs": [
+      {
+        "file": "assets/abendkarte.pdf",
+        "label": {
+          "de": "Abendkarte als PDF",
+          "en": "Evening menu as PDF (German)"
+        }
+      },
+      {
+        "file": "assets/abendkarte-en.pdf",
+        "label": {
+          "de": "Abendkarte auf Englisch (PDF)",
+          "en": "Evening menu as PDF (English)"
+        }
+      }
+    ]
+  },
+  "hours": {
+    "rows": [
+      {
+        "days": {
+          "de": "Montag – Freitag",
+          "en": "Monday – Friday"
+        },
+        "lines": [
+          {
+            "time": {
+              "de": "11.30 – 14.30 Uhr",
+              "en": "11.30 am – 2.30 pm"
+            },
+            "note": {
+              "de": "Mittagstisch",
+              "en": "Lunch menu"
+            }
+          },
+          {
+            "time": {
+              "de": "18 – 22.30 Uhr",
+              "en": "6 – 10.30 pm"
+            },
+            "note": {
+              "de": "Abendkarte",
+              "en": "Evening menu"
+            }
+          }
+        ]
+      },
+      {
+        "days": {
+          "de": "Samstag",
+          "en": "Saturday"
+        },
+        "lines": [
+          {
+            "time": {
+              "de": "11.30 – 14.30 Uhr",
+              "en": "11.30 am – 2.30 pm"
+            },
+            "note": null
+          },
+          {
+            "time": {
+              "de": "18 – 22.30 Uhr",
+              "en": "6 – 10.30 pm"
+            },
+            "note": {
+              "de": "Abendkarte",
+              "en": "Evening menu"
+            }
+          }
+        ]
+      },
+      {
+        "days": {
+          "de": "Sonntag & Feiertag",
+          "en": "Sundays & public holidays"
+        },
+        "lines": [
+          {
+            "time": {
+              "de": "Ruhetag",
+              "en": "Closed"
+            },
+            "note": null
+          }
+        ]
+      }
+    ],
+    "kitchenNote": {
+      "de": "Die Küche ist bis 22 Uhr geöffnet.",
+      "en": "The kitchen is open until 10 pm."
+    }
+  }
+}

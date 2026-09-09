@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Phở Restaurant Konstanz | Willkommen</title>
+<meta name="description" content="Phở Restaurant Konstanz – Spezialitäten aus Vietnam als Mittagsmenü und auf der Abendkarte. Hindenburgstraße 15, 78467 Konstanz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body id="top">
+
+<!-- Brand roundel: drawn once, stamped everywhere -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="pho-roundel">
+      <circle cx="50" cy="50" r="50" fill="#C6CE28"/>
+      <text x="50" y="54" text-anchor="middle" font-family="Lora, Georgia, serif" font-style="italic" font-weight="500" font-size="33" fill="#FFFFFF">phở</text>
+      <g stroke="#FFFFFF" stroke-width="4" stroke-linecap="round">
+        <line x1="24" y1="78" x2="86" y2="60"/>
+        <line x1="21" y1="69" x2="83" y2="51"/>
+      </g>
+    </g>
+  </defs>
+</svg>
+
+<header class="site-header" id="siteHeader">
+  <a class="brand" href="#top" aria-label="Phở Restaurant Konstanz – zum Seitenanfang">
+    <svg class="brand-roundel" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><use href="#pho-roundel"/></svg>
+    <span class="brand-word">
+      <span class="brand-name">Phở Restaurant</span>
+      <span class="brand-sub" data-i18n="brand.sub"><span class="star" aria-hidden="true">★</span> Spezialitäten aus Vietnam</span>
+    </span>
+  </a>
+  <nav class="site-nav" aria-label="Hauptnavigation">
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList" aria-label="Menü">
+      <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <ul id="navList" class="nav-list">
+      <li><a href="#restaurant" data-i18n="nav.restaurant">Restaurant</a></li>
+      <li><a href="#mittagsmenue" data-i18n="nav.lunch">Mittagsmenü</a></li>
+      <li><a href="#abendkarte" data-i18n="nav.dinner">Abendkarte</a></li>
+      <li><a href="#kontakt" data-i18n="nav.contact">Kontakt</a></li>
+      <li><a href="#impressum" data-i18n="nav.imprint">Impressum</a></li>
+    </ul>
+  </nav>
+  <div class="lang-switch" role="group" aria-label="Sprache / Language">
+    <button type="button" data-lang="de" aria-pressed="true" lang="de">DE</button>
+    <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="restaurant">
+    <div class="hero-photo" aria-hidden="true">
+      <!-- Clean frangipani photo (no baked-in logo/slogan — the header carries those). -->
+      <img src="./assets/hero-frangipani.jpg" alt="" class="hero-img" id="heroImg">
+    </div>
+    <div class="hero-inner">
+      <div class="hero-card reveal">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Restaurant · Konstanz</p>
+        <h1 class="hero-title" data-i18n="hero.title">Willkommen im Restaurant&nbsp;Phở</h1>
+        <p class="lead" data-i18n="hero.lead">Wir servieren Ihnen Spezialitäten aus Vietnam als Mittagsmenü und auf der Abendkarte.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#kontakt" id="reserveBtn" data-i18n="hero.ctaReserve">Tisch reservieren</a>
+          <a class="btn btn-line" href="#kontakt" data-i18n="hero.ctaHours">Öffnungszeiten</a>
+        </div>
+        <p class="hero-note" data-i18n="hero.note">Hindenburgstraße 15 · 78467 Konstanz · <a href="tel:+4975316970555">07531 / 697 05 55</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHILOSOPHIE ============ -->
+  <section class="section" aria-labelledby="philosophie-title">
+    <div class="card reveal">
+      <blockquote class="big-quote">
+        <p id="philosophie-title" data-i18n="phil.quote">„In Vietnam musst du das Essen nicht suchen, es&nbsp;sucht&nbsp;dich.“</p>
+      </blockquote>
+      <div class="two-col">
+        <div class="col-copy">
+          <p data-i18n="phil.copy1">Essen ist in Vietnam wesentlich mehr als die reine Nahrungsaufnahme, es ist eine hohe Lebenskunst. Die vietnamesische Küche zählt daher zu den vielfältigsten, leichtesten und gesündesten der Welt. Die Grundpfeiler sind Reis, die Fischsoße „nườc mắm“ und frische Kräuter.</p>
+          <p data-i18n="phil.copy2">Wir kochen stets mit frischen Zutaten. Fette werden bei uns nur sparsam verwendet.</p>
+        </div>
+        <aside class="pho-explainer">
+          <svg class="mini-roundel" viewBox="0 0 100 100" role="img" aria-label="phở-Logo"><use href="#pho-roundel"/></svg>
+          <h2 class="explainer-title" data-i18n="phil.explainerTitle"><em>phở</em> <span class="pron">(„fo“ ausgesprochen)</span></h2>
+          <p data-i18n="phil.explainerBody">… ist eine traditionelle Suppe und das Nationalgericht Vietnams. Sie ist fast an jeder Straßenecke erhältlich und wird gerne zum Frühstück, aber auch zu Mittag und zu Abend gegessen. Die Suppe wird in einer Schüssel serviert und enthält neben einer kräftigen Brühe Reisnudeln und dünn geschnittenes Rind- oder Hühnerfleisch. Sie kann mit frischen Kräutern und Fischsoße nach Belieben gewürzt werden.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MITTAGSMENÜ ============ -->
+  <section class="section" id="mittagsmenue" aria-labelledby="mittag-title">
+    <div class="card reveal">
+      <header class="section-head">
+        <div class="star-divider" aria-hidden="true"><span class="rule"></span><span class="star">★</span><span class="rule"></span></div>
+        <h2 class="section-title" id="mittag-title" data-i18n="lunch.title">Mittagsmenü</h2>
+        <p class="section-sub" id="lunchSub">Montag bis Samstag · 11.30 – 14.30 Uhr</p>
+      </header>
+
+      <p class="starter reveal" id="lunchStarter">
+        <span class="starter-text"><strong>Vorspeise</strong> — Zwei Sommerrollen oder Minirollen oder kleiner gemischter Salat <em>(alles vegan)</em></span>
+        <span class="price">4,00&nbsp;€</span>
+      </p>
+
+      <ol class="menu-list" id="lunchList">
+        <li class="menu-item reveal">
+          <span class="menu-no" aria-hidden="true">01</span>
+          <div class="menu-body">
+            <h3 class="dish">Bún chay <span class="tag">vegan</span></h3>
+            <p class="dish-desc">Dünne Reisnudeln mit veganen Frühlingsrollen, Gemüse und Kräutern.</p>
+          </div>
+          <span class="price">8,50&nbsp;€</span>
+        </li>
+        <li class="menu-item reveal">
+          <span class="menu-no" aria-hidden="true">02</span>
+          <div class="menu-body">
+            <h3 class="dish">Cơm thịt kho</h3>
+            <p class="dish-desc">Gekochter Reis mit karamellisiertem Schweinefleisch (oder vegan), Gemüse und Kräutern.</p>
+          </div>
+          <span class="price">9,50&nbsp;€</span>
+        </li>
+        <li class="menu-item reveal">
+          <span class="menu-no" aria-hidden="true">03</span>
+          <div class="menu-body">
+            <h3 class="dish">Phở bò</h3>
+            <p class="dish-desc">Reisnudelsuppe mit Rindfleisch (alternativ auch mit Garnelen, Hühnerfleisch oder vegan) und Kräutern.</p>
+          </div>
+          <span class="price">9,00&nbsp;€</span>
+        </li>
+        <li class="menu-item reveal">
+          <span class="menu-no" aria-hidden="true">04</span>
+          <div class="menu-body">
+            <h3 class="dish">Bún gà xoài</h3>
+            <p class="dish-desc">Reisnudelsalat mit Frühlingsrollen (Hühnchenfleisch und Gemüse, gerollt in Reispapier), Salat, Mango und Kräutern.</p>
+          </div>
+        </li>
+        <li class="menu-item reveal">
+          <span class="menu-no" aria-hidden="true">05</span>
+          <div class="menu-body">
+            <h3 class="dish">Cơm gà / Tôm</h3>
+            <p class="dish-desc">Gekochter Reis mit gebratenem Hühnerfleisch (alternativ auch mit Garnelen oder vegan) und Gemüse in Kokos-Curry-Soße.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="takeaway reveal" id="lunchNote">
+        Alle Gerichte gibt es auch <strong>zum Mitnehmen</strong>. Am besten Sie geben uns vorher telefonisch Bescheid unter
+        <a href="tel:+4975316970555">0049&nbsp;(0)7531 / 697 05 55</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ABENDKARTE ============ -->
+  <section class="section" id="abendkarte" aria-labelledby="abend-title">
+    <div class="card card-evening reveal">
+      <div class="evening-media">
+        <div class="carousel" id="eveningCarousel" aria-roledescription="carousel" aria-label="Impressionen aus dem Restaurant">
+          <div class="carousel-track">
+            <figure class="carousel-slide is-active">
+              <img src="./assets/tam/20221119_214907.webp" alt="Abendstimmung im Restaurant: warmes Lampenlicht, rote Tischdecken und viele Grünpflanzen" loading="lazy">
+            </figure>
+            <figure class="carousel-slide">
+              <img src="./assets/tam/20220917_104117.webp" alt="Heller Gastraum mit roten Tischdecken, Holzstühlen und üppigen Grünpflanzen" loading="lazy">
+            </figure>
+            <figure class="carousel-slide">
+              <img src="./assets/tam/20231202_113543.webp" alt="Gastraum mit grünen Tischdecken und Blick auf verschneite Fenster" loading="lazy">
+            </figure>
+            <figure class="carousel-slide">
+              <img src="./assets/tam/20210425_103425.webp" alt="Blühende Orchideen und Pflanzen an der Theke des Restaurants" loading="lazy">
+            </figure>
+          </div>
+          <button class="carousel-arrow carousel-prev" type="button" aria-label="Vorheriges Bild">&#8249;</button>
+          <button class="carousel-arrow carousel-next" type="button" aria-label="Nächstes Bild">&#8250;</button>
+          <div class="carousel-dots" role="tablist" aria-label="Bildauswahl"></div>
+        </div>
+      </div>
+      <div class="evening-copy">
+        <div class="star-divider star-divider-left" aria-hidden="true"><span class="star">★</span><span class="rule"></span></div>
+        <h2 class="section-title" id="abend-title" data-i18n="evening.title">Abendkarte</h2>
+        <p class="lead" data-i18n="evening.lead">Ab 18&nbsp;Uhr begrüßen wir Sie in unserem Restaurant und laden Sie ein zu einer kleinen kulinarischen Reise durch unser Land, vom Norden bis zum Süden.</p>
+        <p data-i18n="evening.copy">Alle Speisen werden von uns hausgemacht und sind stets mit frischen Zutaten zubereitet.</p>
+        <p class="evening-hours" data-i18n="evening.hours">Montag – Samstag · 18 – 22.30 Uhr · Küche bis 22 Uhr</p>
+        <div class="evening-actions">
+          <!-- Download links; without JS both stay visible,
+               with JS i18n.js shows only the active language's PDF. -->
+          <a class="btn btn-line" href="./assets/abendkarte.pdf" download data-pdf-lang="de">Abendkarte (PDF)</a>
+          <a class="btn btn-line" href="./assets/abendkarte-en.pdf" download lang="en" data-pdf-lang="en">Evening menu (PDF)</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full evening menu, rendered from menu.json (stays hidden if it fails to load) -->
+    <div class="card reveal" id="dinnerCard" hidden>
+      <header class="section-head">
+        <div class="star-divider" aria-hidden="true"><span class="rule"></span><span class="star">★</span><span class="rule"></span></div>
+        <h2 class="section-title" id="dinnerTitle">Unsere Abendkarte</h2>
+        <p class="section-sub" id="dinnerSub">Montag bis Samstag · ab 18 Uhr</p>
+      </header>
+      <nav class="menu-jump" id="dinnerJump" aria-label="Abendkarte – Kategorien"></nav>
+      <div id="dinnerMenu"></div>
+      <div id="dinnerDrinks"></div>
+      <div class="legend" id="dinnerLegend"></div>
+    </div>
+  </section>
+
+  <!-- ============ KONTAKT ============ -->
+  <section class="section" id="kontakt" aria-labelledby="kontakt-title">
+    <div class="card reveal">
+      <header class="section-head">
+        <div class="star-divider" aria-hidden="true"><span class="rule"></span><span class="star">★</span><span class="rule"></span></div>
+        <h2 class="section-title" id="kontakt-title" data-i18n="contact.title">Kontakt</h2>
+        <p class="section-sub" data-i18n="contact.sub">Wir freuen uns auf Sie!</p>
+      </header>
+      <div class="contact-grid">
+        <div class="contact-block reveal">
+          <h3 class="contact-label" data-i18n="contact.addressLabel">Adresse</h3>
+          <address id="contactAddress">
+            Phở Restaurant<br>
+            Hindenburgstraße 15<br>
+            78467 Konstanz
+          </address>
+          <h3 class="contact-label" data-i18n="contact.phoneLabel">Telefon</h3>
+          <p class="tel-wrap"><a class="tel-big" id="contactTel" href="tel:+4975316970555">0049 (0)7531 / 697 05 55</a></p>
+          <p class="contact-hint" data-i18n="contact.hint">Reservierung &amp; Bestellungen zum Mitnehmen nehmen wir gerne telefonisch entgegen.</p>
+        </div>
+        <div class="contact-block reveal">
+          <h3 class="contact-label" data-i18n="contact.hoursLabel">Öffnungszeiten</h3>
+          <dl class="hours" id="hoursList">
+            <div class="hours-row">
+              <dt>Montag – Freitag</dt>
+              <dd>11.30 – 14.30 Uhr <span class="hours-note">Mittagstisch</span><br>18 – 22.30 Uhr <span class="hours-note">Abendkarte</span></dd>
+            </div>
+            <div class="hours-row">
+              <dt>Samstag</dt>
+              <dd>11.30 – 14.30 Uhr<br>18 – 22.30 Uhr <span class="hours-note">Abendkarte</span></dd>
+            </div>
+            <div class="hours-row">
+              <dt>Sonntag &amp; Feiertag</dt>
+              <dd>Ruhetag</dd>
+            </div>
+          </dl>
+          <p class="kitchen-note" id="kitchenNote">Die Küche ist bis 22&nbsp;Uhr geöffnet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMPRESSUM ============ -->
+  <section class="section section-last" id="impressum" aria-labelledby="impressum-title">
+    <div class="card card-quiet reveal">
+      <h2 class="section-title section-title-small" id="impressum-title" data-i18n="imprint.title">Impressum</h2>
+      <div class="impressum-grid">
+        <div data-i18n="imprint.block1">
+          <p><strong>Phở Restaurant</strong><br>Hindenburgstraße 15<br>78467 Konstanz<br>Telefon: 0049&nbsp;(0)7531 / 697 05 55</p>
+          <p><strong>Inhaber</strong><br>Luong Tam Giang<br>Ust-Id: DE299264201</p>
+        </div>
+        <div data-i18n="imprint.block2">
+          <p><strong>Nutzungsrechte</strong><br>Alle Texte, alle Fotos, alle Gestaltungselemente dieser Webseite sind – sofern nicht ein anderes Copyright angegeben ist – urheberrechtlich geschützt.</p>
+          <p><strong>Hinweis gemäß Teledienstgesetz</strong><br>Der Webmaster dieser Seiten weist darauf hin, dass die Links zu externen Anbietern führen, sobald der Rahmen verlassen wird oder nicht ausdrücklich etwas anderes erklärt wird. Für den Inhalt der verlinkten Seiten sind die jeweiligen Autoren verantwortlich; der Webmaster übernimmt keine Verantwortung für die Richtigkeit bzw. Aktualität des Inhalts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <svg class="footer-roundel" viewBox="0 0 100 100" role="img" aria-label="phở-Logo"><use href="#pho-roundel"/></svg>
+  <p class="footer-line" data-i18n="footer.line"><span class="star" aria-hidden="true">★</span> Spezialitäten aus Vietnam</p>
+  <p class="footer-copy" data-i18n="footer.copy">Phở Restaurant · Hindenburgstraße 15 · 78467 Konstanz · <a href="tel:+4975316970555">07531 / 697 05 55</a></p>
+  <a class="to-top" href="#top" data-i18n="footer.toTop">Nach oben ↑</a>
+</footer>
+
+<!-- ============ RESERVIERUNG (modal) ============ -->
+<dialog class="reserve-dialog" id="reserveDialog" aria-labelledby="reserveTitle">
+  <form class="reserve-form" id="reserveForm" method="dialog" novalidate>
+    <button type="button" class="reserve-close" id="reserveClose" aria-label="Schließen">×</button>
+    <div class="star-divider star-divider-left" aria-hidden="true"><span class="star">★</span><span class="rule"></span></div>
+    <h2 class="section-title section-title-small" id="reserveTitle" data-i18n="reserve.title">Tisch reservieren</h2>
+    <p class="reserve-intro" data-i18n="reserve.intro">Senden Sie uns Ihre Anfrage – wir bestätigen sie telefonisch. Die mit * markierten Felder sind Pflichtfelder.</p>
+
+    <div class="reserve-grid">
+      <label class="reserve-field reserve-col-2">
+        <span data-i18n="reserve.name">Name *</span>
+        <input type="text" name="name" autocomplete="name" required maxlength="100">
+      </label>
+      <label class="reserve-field">
+        <span data-i18n="reserve.phone">Telefon *</span>
+        <input type="tel" name="phone" autocomplete="tel" required maxlength="40">
+      </label>
+      <label class="reserve-field">
+        <span data-i18n="reserve.email">E-Mail *</span>
+        <input type="email" name="email" autocomplete="email" required maxlength="120">
+      </label>
+      <label class="reserve-field">
+        <span data-i18n="reserve.date">Datum *</span>
+        <input type="date" name="date" required>
+      </label>
+      <label class="reserve-field">
+        <span data-i18n="reserve.time">Uhrzeit *</span>
+        <input type="time" name="time" required>
+      </label>
+      <label class="reserve-field">
+        <span data-i18n="reserve.guests">Personen *</span>
+        <input type="number" name="guests" required min="1" max="99" value="2" inputmode="numeric">
+      </label>
+      <label class="reserve-field reserve-col-2">
+        <span data-i18n="reserve.message">Anmerkung (optional)</span>
+        <textarea name="message" rows="2" maxlength="1000"></textarea>
+      </label>
+    </div>
+
+    <!-- Honeypot: hidden from users; bots that fill it are silently dropped. -->
+    <div class="reserve-hp" aria-hidden="true">
+      <label>Firma<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+    </div>
+
+    <p class="reserve-status" id="reserveStatus" role="status" aria-live="polite" hidden></p>
+
+    <div class="reserve-actions">
+      <button type="button" class="btn btn-line" id="reserveCancel" data-i18n="reserve.cancel">Abbrechen</button>
+      <button type="submit" class="btn btn-solid" id="reserveSubmit" data-i18n="reserve.submit">Anfrage senden</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="./app.js"></script>
+<script src="./i18n.js"></script>
+<script src="./content.js"></script>
+<script src="./menu.js"></script>
+<script src="./reserve.js"></script>
+<script src="./carousel.js"></script>
+</body>
+</html>

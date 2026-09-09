@@ -1,0 +1,35 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": "public",
+  "functions": {
+    "api/menu.ts": {
+      "maxDuration": 60,
+      "includeFiles": "{seed,fonts,public/assets/print}/**"
+    },
+    "api/data.ts": {
+      "includeFiles": "seed/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/menu.json", "destination": "/api/data?file=menu.json" },
+    { "source": "/content.json", "destination": "/api/data?file=content.json" },
+    { "source": "/assets/abendkarte.pdf", "destination": "/api/data?file=abendkarte.pdf" },
+    { "source": "/assets/abendkarte-en.pdf", "destination": "/api/data?file=abendkarte-en.pdf" },
+    { "source": "/admin", "destination": "/admin/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/admin/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
+  ]
+}
