@@ -36,7 +36,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await writeFile("content.json", JSON.stringify(parsed.data, null, 2) + "\n");
   } catch (err) {
     console.error("content save failed:", err);
-    return res.status(500).json({ ok: false, error: "Speichern fehlgeschlagen." });
+    const detail = err instanceof Error ? err.message : String(err);
+    return res.status(500).json({ ok: false, error: "Speichern fehlgeschlagen.", detail });
   }
 
   return res.status(200).json({ ok: true });

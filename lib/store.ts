@@ -126,12 +126,19 @@ export async function writeFile(name: StoredFile, body: Buffer | string): Promis
       "BLOB_READ_WRITE_TOKEN is not set — connect a Blob store before saving.",
     );
   }
-  await put(PREFIX + name, body, {
-    access: "public",
-    addRandomSuffix: false,
-    allowOverwrite: true,
-    contentType: CONTENT_TYPES[name],
-    // Short TTL: an owner save should show up on the site within a minute.
-    cacheControlMaxAge: 60,
-  });
+  try {
+    await put(PREFIX + name, body, {
+      access: "public",
+      addRandomSuffix: false,
+      allowOverwrite: true,
+      contentType: CONTENT_TYPES[name],
+      // Short TTL: an owner save should show up on the site within a minute.
+      cacheControlMaxAge: 60,
+    });
+  } catch (err) {
+    // Surface the real reason (bad/expired token, store suspended, etc.)
+    // rather than letting it collapse into a generic 500 upstream.
+    const msg = err instanceof Error ? err.message : String(err);
+    throw new Error(`Blob write failed for ${name}: ${msg}`);
+  }
 }
