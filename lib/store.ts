@@ -1,16 +1,22 @@
 import fs from "node:fs";
 import path from "node:path";
-import { list, put } from "@vercel/blob";
+import { Redis } from "@upstash/redis";
 
 /**
  * Storage for the four owner-mutable files (menu.json, content.json and the two
  * generated Abendkarte PDFs).
  *
  * Vercel's filesystem is read-only, so these cannot live next to the site the
- * way they did on the builder's disk. They live in Vercel Blob instead, with
+ * way they did on the builder's disk. They live in Upstash Redis instead, with
  * the versions exported from the builder committed under seed/ as a fallback:
- * a fresh deployment with an empty Blob store serves the seed, and the first
- * owner save switches it over. Nothing needs to be seeded manually.
+ * a fresh deployment with an empty store serves the seed, and the first owner
+ * save switches it over. Nothing needs to be seeded manually.
+ *
+ * They used to live in Vercel Blob, but every Blob write is an "advanced
+ * operation" and the Hobby plan only allows 2,000 a month. Upstash's free tier
+ * is measured in hundreds of thousands of commands, which this site will never
+ * approach. Blob is still read (never written) as a middle fallback, so the
+ * owner's last Blob-era save stays live until the first save into Redis.
  */
 
 export type StoredFile =
@@ -39,9 +45,25 @@ export const CONTENT_TYPES: Record<StoredFile, string> = {
 
 const PREFIX = "site/";
 
-/** True when a Blob store is wired up; without it the seed is served read-only. */
-export function blobConfigured(): boolean {
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+/**
+ * The Upstash connection, or null when no store is connected. The Vercel
+ * Marketplace integration sets KV_REST_API_*; a store created directly on
+ * upstash.com gives UPSTASH_REDIS_REST_*. Either works.
+ */
+let redisClient: Redis | null | undefined;
+
+function redis(): Redis | null {
+  if (redisClient !== undefined) return redisClient;
+  const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+  // Bodies are stored as base64 strings; keep the client from JSON-parsing them.
+  redisClient = url && token ? new Redis({ url, token, automaticDeserialization: false }) : null;
+  return redisClient;
+}
+
+/** True when a store is wired up; without it the seed is served read-only. */
+export function storeConfigured(): boolean {
+  return redis() !== null;
 }
 
 /**
@@ -69,18 +91,55 @@ function readSeed(name: StoredFile): Buffer | null {
 }
 
 /**
- * Locate a blob by exact pathname. `addRandomSuffix: false` keeps the pathname
- * stable across overwrites, but the CDN would then happily serve a stale copy —
- * so callers fetch with the `uploadedAt` stamp appended as a cache buster.
+ * The legacy Blob copy, read-only. Blobs were written with
+ * `addRandomSuffix: false`, so the URL is fixed and is fetched directly — a
+ * plain GET costs no Blob advanced operation (unlike `list()`). The store id
+ * comes from the token (`vercel_blob_rw_<storeId>_<secret>`) or BLOB_BASE_URL.
  */
-async function findBlob(name: StoredFile): Promise<{ url: string; uploadedAt: Date } | null> {
-  if (!blobConfigured()) return null;
+function legacyBlobUrl(name: StoredFile): string | null {
+  const explicit = process.env.BLOB_BASE_URL?.trim().replace(/\/+$/, "");
+  const storeId = process.env.BLOB_READ_WRITE_TOKEN?.split("_")[3];
+  const base =
+    explicit || (storeId ? `https://${storeId.toLowerCase()}.public.blob.vercel-storage.com` : null);
+  return base ? `${base}/${PREFIX}${name}` : null;
+}
+
+async function readLegacyBlob(name: StoredFile): Promise<Buffer | null> {
+  const url = legacyBlobUrl(name);
+  if (!url) return null;
   try {
-    const { blobs } = await list({ prefix: PREFIX + name, limit: 10 });
-    const hit = blobs.find((b) => b.pathname === PREFIX + name);
-    return hit ? { url: hit.url, uploadedAt: hit.uploadedAt } : null;
+    const res = await fetch(url);
+    return res.ok ? Buffer.from(await res.arrayBuffer()) : null;
   } catch {
-    // A Blob outage must not take the website down — fall through to the seed.
+    return null;
+  }
+}
+
+/**
+ * Each file is one hash: `body` (base64) and `at` (epoch ms of the write), set
+ * together in a single HSET so they can never disagree.
+ */
+async function readRedis(name: StoredFile): Promise<Buffer | null> {
+  const r = redis();
+  if (!r) return null;
+  try {
+    const b64 = await r.hget<string>(PREFIX + name, "body");
+    return b64 ? Buffer.from(b64, "base64") : null;
+  } catch (err) {
+    // A store outage must not take the website down — fall through.
+    console.error(`redis read failed for ${name}:`, err);
+    return null;
+  }
+}
+
+/** When a stored file was last written to Redis, or null if it never was. */
+export async function uploadedAt(name: StoredFile): Promise<Date | null> {
+  const r = redis();
+  if (!r) return null;
+  try {
+    const at = await r.hget<string>(PREFIX + name, "at");
+    return at ? new Date(Number(at)) : null;
+  } catch {
     return null;
   }
 }
@@ -88,23 +147,15 @@ async function findBlob(name: StoredFile): Promise<{ url: string; uploadedAt: Da
 export interface ReadResult {
   body: Buffer;
   /** Where it came from, surfaced in a response header for debugging. */
-  source: "blob" | "seed";
+  source: "redis" | "blob" | "seed";
 }
 
-/** Current bytes for a stored file: Blob if present, otherwise the seed. */
+/** Current bytes for a stored file: Redis, else the legacy Blob copy, else the seed. */
 export async function readFile(name: StoredFile): Promise<ReadResult | null> {
-  const found = await findBlob(name);
-  if (found) {
-    try {
-      const bust = `?v=${found.uploadedAt.getTime()}`;
-      const res = await fetch(found.url + bust);
-      if (res.ok) {
-        return { body: Buffer.from(await res.arrayBuffer()), source: "blob" };
-      }
-    } catch {
-      /* fall through to the seed */
-    }
-  }
+  const fromRedis = await readRedis(name);
+  if (fromRedis) return { body: fromRedis, source: "redis" };
+  const fromBlob = await readLegacyBlob(name);
+  if (fromBlob) return { body: fromBlob, source: "blob" };
   const seed = readSeed(name);
   return seed ? { body: seed, source: "seed" } : null;
 }
@@ -121,24 +172,19 @@ export async function readJson<T>(name: "menu.json" | "content.json"): Promise<T
 }
 
 export async function writeFile(name: StoredFile, body: Buffer | string): Promise<void> {
-  if (!blobConfigured()) {
+  const r = redis();
+  if (!r) {
     throw new Error(
-      "BLOB_READ_WRITE_TOKEN is not set — connect a Blob store before saving.",
+      "No Upstash Redis store is connected (KV_REST_API_URL / KV_REST_API_TOKEN) — connect one before saving.",
     );
   }
+  const buf = typeof body === "string" ? Buffer.from(body, "utf8") : body;
   try {
-    await put(PREFIX + name, body, {
-      access: "public",
-      addRandomSuffix: false,
-      allowOverwrite: true,
-      contentType: CONTENT_TYPES[name],
-      // Short TTL: an owner save should show up on the site within a minute.
-      cacheControlMaxAge: 60,
-    });
+    await r.hset(PREFIX + name, { body: buf.toString("base64"), at: String(Date.now()) });
   } catch (err) {
-    // Surface the real reason (bad/expired token, store suspended, etc.)
-    // rather than letting it collapse into a generic 500 upstream.
+    // Surface the real reason (bad token, quota, etc.) rather than letting it
+    // collapse into a generic 500 upstream.
     const msg = err instanceof Error ? err.message : String(err);
-    throw new Error(`Blob write failed for ${name}: ${msg}`);
+    throw new Error(`Store write failed for ${name}: ${msg}`);
   }
 }

@@ -35,11 +35,14 @@ lib/               shared code (schemas, mail, PDF renderer, auth, storage)
 
 `menu.json`, `content.json` and the two `abendkarte*.pdf` files are the only
 things the owner can change, so they cannot be static files: Vercel's filesystem
-is read-only. They live in **Vercel Blob**, and `seed/` holds the versions as
+is read-only. They live in **Upstash Redis**, and `seed/` holds the versions as
 exported from the builder.
 
-Reads go through `api/data.ts`, which serves the Blob copy and falls back to
-`seed/` when the store is empty. So a fresh deployment already shows the right
+Reads go through `api/data.ts`, which serves the Redis copy and falls back to
+`seed/` when the store is empty. (Data saved before the move to Redis still
+lives in the old Vercel Blob store; it is read, never written, as a middle
+fallback until the first save into Redis. Blob writes count against the Hobby
+plan's 2,000 advanced operations a month, which is why it was replaced.) So a fresh deployment already shows the right
 menu, and the first owner save switches it over — there is nothing to seed by
 hand. The `X-Data-Source` response header says which one you got.
 
@@ -62,8 +65,9 @@ function and the site would be stuck on the seed forever.
 
 1. **Create the project** on Vercel and point it at this repo. Framework preset
    "Other"; `vercel.json` sets the rest.
-2. **Connect a Blob store** (Storage → Blob → Connect). This sets
-   `BLOB_READ_WRITE_TOKEN` automatically. Without it the site still works, but
+2. **Connect an Upstash Redis store** (Storage → Create Database → Upstash for
+   Redis, free plan → connect to this project). This sets `KV_REST_API_URL` and
+   `KV_REST_API_TOKEN` automatically. Without it the site still works, but
    the owner admin cannot save.
 3. **Set the environment variables** from `.env.example`:
 

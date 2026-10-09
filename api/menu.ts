@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { requireOwner } from "../lib/auth.js";
 import { menuSchema, type Menu } from "../lib/menuSchema.js";
-import { readJson, writeFile } from "../lib/store.js";
+import { readJson, writeFile, uploadedAt } from "../lib/store.js";
 import { renderMenuPdfs, PDF_FILES } from "../lib/menuPdf.js";
 
 /**
@@ -14,6 +14,11 @@ import { renderMenuPdfs, PDF_FILES } from "../lib/menuPdf.js";
  * The menu is stored first and the PDFs after: if rendering fails, the website
  * is still correct and the response says the cards are stale, which is a much
  * better failure than rejecting the owner's edit.
+ *
+ * The PDFs only show the Abendkarte, so a save that leaves `dinner` untouched
+ * (the weekly Mittagsmenü edit) skips them — provided the stored PDFs are newer
+ * than the stored menu, i.e. the previous render actually succeeded. That keeps
+ * such a save at one store write instead of three and avoids starting Chromium.
  */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!requireOwner(req, res)) return;
@@ -40,12 +45,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
   }
 
+  const pdfsUpToDate = await pdfsMatch(parsed.data);
+
   try {
     await writeFile("menu.json", JSON.stringify(parsed.data, null, 2) + "\n");
   } catch (err) {
     console.error("menu save failed:", err);
     const detail = err instanceof Error ? err.message : String(err);
     return res.status(500).json({ ok: false, error: "Speichern fehlgeschlagen.", detail });
+  }
+
+  if (pdfsUpToDate) {
+    return res.status(200).json({ ok: true, pdf: { ok: true, skipped: true } });
   }
 
   const rendered = await renderMenuPdfs(parsed.data);
@@ -66,4 +77,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   return res.status(200).json({ ok: true, pdf: { ok: true } });
+}
+
+/** True when the stored PDFs were rendered from the same Abendkarte as `next`. */
+async function pdfsMatch(next: Menu): Promise<boolean> {
+  const prev = await readJson<Menu>("menu.json");
+  if (!prev || JSON.stringify(prev.dinner) !== JSON.stringify(next.dinner)) return false;
+  const [menuAt, deAt, enAt] = await Promise.all([
+    uploadedAt("menu.json"),
+    uploadedAt(PDF_FILES.de as "abendkarte.pdf"),
+    uploadedAt(PDF_FILES.en as "abendkarte-en.pdf"),
+  ]);
+  // Null menuAt means the old menu came from Blob or the seed: render once.
+  return Boolean(menuAt && deAt && enAt && deAt >= menuAt && enAt >= menuAt);
 }

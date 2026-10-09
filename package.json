@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@sparticuz/chromium": "^133.0.0",
-    "@vercel/blob": "^1.1.1",
+    "@upstash/redis": "^1.39.0",
     "puppeteer-core": "^24.10.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
